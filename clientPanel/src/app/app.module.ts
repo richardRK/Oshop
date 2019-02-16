@@ -1,6 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
+
+
+import {DataTableModule} from "angular-6-datatable";
+
+
+
+
 
 
 import {AngularFireModule} from 'angularfire2';
@@ -27,6 +35,20 @@ import { OrderSuccessComponent } from './components/order-success/order-success.
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-gaurd.service';
+import { UserService } from './services/user.service';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { CategoryService } from './services/category.service';
+import { ProductService } from './services/product.service';
+import { CustomFormsModule } from 'ng2-validation';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductXCardComponent } from './product-x-card/product-x-card.component';
+import { ShoppingCartService } from './services/shopping-cart.service';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+
 
 @NgModule({
   declarations: [
@@ -49,16 +71,34 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
+    ProductFormComponent,
+    ProductFilterComponent,
+    ProductXCardComponent,
+    ProductQuantityComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.fireBase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule,
+    CustomFormsModule,
+    DataTableModule,
+    FlashMessagesModule.forRoot(),
 
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    AdminAuthGuard,
+    UserService,
+    CategoryService,
+    ProductService,
+    ShoppingCartService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

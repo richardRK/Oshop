@@ -1,25 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase';
-
-
+import { AuthService } from 'src/app/services/auth.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor(private afAuth: AngularFireAuth) { }
+
+  email: string;
+  password: string;
+
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private flashMessageService: FlashMessagesService
+
+  ) { }
 
   ngOnInit() {
+
+
+  }
+  onSubmit() {
+
+    this.auth.loginAnonymous(this.email, this.password)
+      .then((res) => {
+        this.flashMessageService.show('You are Logged In', {
+          cssClass: 'alert-success', timeout: 10000
+        });
+        //this.router.navigate(['/']);
+      })
+      .catch((err) => {
+        this.flashMessageService.show(err.message, {
+          cssClass: 'alert-danger', timeout: 4000
+        });
+        this.router.navigate(['/login']);
+      })
+
+
   }
 
   login() {
-
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-
+    this.auth.login();
   }
 
 }

@@ -10,31 +10,42 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav mr-auto">
-        
+      <ul class="navbar-nav ml-auto">
+
         <li class="nav-item">
-          <a routerLink="/shopping-cart" class="nav-link">Shopping Cart</a>
+          <a routerLink="/products" class="nav-link">Products</a>
         </li>
-        <li ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">UserName</a>
+
+        <li class="nav-item">
+          <a routerLink="/shopping-cart" class="nav-link">
+            Cart
+            <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+              {{ cart.totalItemCount }}
+            </span>
+          </a>
+        </li>
+
+        <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li> -->
+
+        <li *ngIf="appUser else anonymousUser" ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{appUser.email}}
+          </a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" routerLink="/my/orders">Orders</a>
-            <a class="dropdown-item" routerLink="admin/orders">Manage Orders</a>
-            <a class="dropdown-item" routerLink="admin/products">Manage Products</a>
-            <!-- <a class="dropdown-item">Login</a> -->
+
+
+            <ng-container *ngIf="appUser.isAdmin">
+              <a class="dropdown-item" routerLink="admin/orders">Manage Orders</a>
+              <a class="dropdown-item" routerLink="admin/products">Manage Products</a>
+            </ng-container>
+
+
+            <a (click)="logout()" class="dropdown-item">Log Out</a>
           </div>
-        </li>
-      </ul>
-
-      
-
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a routerLink="/register" class="nav-link">Register</a>
-        </li>
-
-        <li class="nav-item">
-          <a routerLink="/login" class="nav-link">Login</a>
         </li>
       </ul>
 
@@ -43,4 +54,24 @@
 
 
   </div>
+
+
+  <ul class="navbar-nav mr-auto">
+
+
+    <ng-template #anonymousUser>
+
+
+      <li *ngIf="!user" class="nav-item">
+        <a routerLink="/register" class="nav-link">Register</a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/login" class="nav-link">Login</a>
+      </li>
+
+    </ng-template>
+
+
+  </ul>
 </nav>
