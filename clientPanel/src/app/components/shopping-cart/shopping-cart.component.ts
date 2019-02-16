@@ -16,5 +16,9 @@ export class ShoppingCartComponent implements OnInit {
 
     this.cart$ = await this.scartSrvc.getCart();
   }
+  clearCart(){
+    console.log('clear cart');
+    this.scartSrvc.clearCart();
+  }
 
 }
