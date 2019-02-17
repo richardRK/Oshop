@@ -1,36 +1,18 @@
-<div class="row">
-
-    <div class="col-md-6 mx-auto">
-        <div class="card">
-            <div class="card-body">
-                    <!-- <img src="https://github.com/cr1stian/Client-Panel-Angular/blob/master/src/assets/img/logo.png?raw=true" class="d-block mx-auto" alt="Login in Image"> -->
-                <h1 class="text-center pb-4 pt-3">
-                    <span class="text-primary">
-
-                        <i class="fa fa-lock"></i>
-                        Client Panel
-                    </span>
-                    Login
-                </h1>
-                <form (submit)="onSubmit()">
-                    <div class="form-group">
-                        <label for='email'>Email</label>
-                        <input type='email' class="form-control" [(ngModel)]="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for='password'>Password</label>
-                        <input type='password' class="form-control" [(ngModel)]="password" name="password" required>
-                    </div>
-                    <input type="submit" value="Submit" class="btn btn-primary btn-block">
-                    <br>
-
-                </form>
-
-                <button (click)="login()" class="btn btn-primary btn-block">Login with Google</button>
-
-
-            </div>
+<div class="align-center-flex">
+    <div class="card row col-md-8">
+      <div class="card-body">
+  
+        <h1 class="card-text">Login <i class="fa fa-sign-in" aria-hidden="true"></i></h1>
+        <hr>
+        <div class="align-center-flex">
+          <div class="form-group">
+            <button class="btn btn-primary btn-login facebook" (click)="loginFacebook()">Login with Facebook</button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-info btn-login google" (click)="loginGoogle()">Login with Google</button>
+          </div>
         </div>
+      </div>
     </div>
-
-</div>
+  </div>
+  

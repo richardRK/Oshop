@@ -2,7 +2,9 @@
 
   <div class="container">
 
-    <a routerLink="/" class="navbar-brand">Shop</a>
+    <a class="navbar-brand" (click)="navbarCollapsed = false" [routerLink]="['/']">Oshop
+      <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+    </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
       <span class="navbar-toggler-icon">
@@ -11,6 +13,10 @@
 
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a routerLink="/about-us" class="nav-link">About Us</a>
+        </li>
 
         <li class="nav-item">
           <a routerLink="/products" class="nav-link">Products</a>
@@ -24,7 +30,12 @@
             </span>
           </a>
         </li>
-
+        <li class="nav-item">
+          <a routerLink="/services" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contact" class="nav-link">Contact Us</a>
+        </li>
         <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/login">Login</a>
           </li> -->
@@ -61,9 +72,9 @@
     <ng-template #anonymousUser>
 
 
-      <li *ngIf="!user" class="nav-item">
+      <!-- <li *ngIf="!user" class="nav-item">
         <a routerLink="/register" class="nav-link">Register</a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
         <a routerLink="/login" class="nav-link">Login</a>

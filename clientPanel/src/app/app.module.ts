@@ -1,30 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { environment } from '../environments/environment';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-import {DataTableModule} from "angular-6-datatable";
-
-
-
+import { DataTableModule } from "angular-6-datatable";
 
 
 
-import {AngularFireModule} from 'angularfire2';
-import {AngularFireDatabaseModule} from 'angularfire2/database';
-import {AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ClientsComponent } from './components/clients/clients.component';
-import { AddClientsComponent } from './components/add-clients/add-clients.component';
-import { EditClientsComponent } from './components/edit-clients/edit-clients.component';
-import { ClientsDetailsComponent } from './components/clients-details/clients-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
@@ -53,20 +44,22 @@ import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-c
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { ListOrderViewComponent } from './components/list-order-view/list-order-view.component';
 import { OrderViewComponent } from './components/order-view/order-view.component';
+import { MDBBootstrapModule} from 'angular-bootstrap-md';
+
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BrandComponent } from './components/brand/brand.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ServicesComponent } from './components/services/services.component';
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    DashboardComponent,
-    ClientsComponent,
-    AddClientsComponent,
-    EditClientsComponent,
-    ClientsDetailsComponent,
     LoginComponent,
     RegisterComponent,
-    SettingsComponent,
     NotFoundComponent,
     HomeComponent,
     ProductsComponent,
@@ -83,7 +76,11 @@ import { OrderViewComponent } from './components/order-view/order-view.component
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
     ListOrderViewComponent,
-    OrderViewComponent
+    OrderViewComponent,
+    AboutUsComponent,
+    BrandComponent,
+    ContactComponent,
+    ServicesComponent
 
   ],
   imports: [
@@ -96,7 +93,9 @@ import { OrderViewComponent } from './components/order-view/order-view.component
     CustomFormsModule,
     DataTableModule,
     FlashMessagesModule.forRoot(),
-
+    MDBBootstrapModule.forRoot(),
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
     AuthService,

@@ -52,11 +52,15 @@ export class AuthService {
 
   }
 
-  login() {
-
+  login(provider: firebase.auth.AuthProvider) {
     this.lasURL();
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    this.afAuth.auth.signInWithPopup(provider);
   }
+  // login() {
+
+  //   this.lasURL();
+  //   this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  // }
 
   loginAnonymous(email: string, password: string) {
     this.isAnonymousLogin = true;
