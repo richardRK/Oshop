@@ -51,6 +51,7 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
 import { OrderService } from './services/order.service';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+import { ListOrderViewComponent } from './components/list-order-view/list-order-view.component';
 import { OrderViewComponent } from './components/order-view/order-view.component';
 
 
@@ -81,6 +82,7 @@ import { OrderViewComponent } from './components/order-view/order-view.component
     ProductQuantityComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
+    ListOrderViewComponent,
     OrderViewComponent
 
   ],
