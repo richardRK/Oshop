@@ -1,5 +1,3 @@
-<h1>All Orders - Admin</h1>
-
 <ng-container *ngIf="order$ | async as orders">
   <ng-container *ngIf="orders.length > 0; else noOrder">
     <table class="table table-striped">
@@ -12,9 +10,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let order of orders">
-          <td>{{order.shipping.name}}</td>
+          <td>{{order.user.username}}</td>
           <td>{{order.datePlaced | date}}</td>
-          <td><a [routerLink]="['/order-view/', order.$key]">View</a></td>
+          <td><a [routerLink]="['/order-details', order.$key]">View</a></td>
         </tr>
       </tbody>
     </table>

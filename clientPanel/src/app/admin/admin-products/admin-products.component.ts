@@ -22,17 +22,13 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
   constructor(private productService: ProductService) {
     this.subscription = this.productService.getAll().subscribe(products => this.products = products);
-
+    
   }
 
   filter(query: string) {
 
     //first get all the products
-
-
-    this.filteredProducts = (query) ? this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) : this.products;
-
-    //this.initializeTable(filteredProducts);
+    this.filteredProducts = (query.trim()) ? this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) : this.products;
   }
   public toInt(num: string) {
     return +num;
@@ -46,7 +42,8 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-
+    //this.order$ = this.productService.getAll();
+    this.filteredProducts = this.products;
   }
 
   ngOnDestroy() {

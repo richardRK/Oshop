@@ -26,6 +26,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { AuthGuard } from './services/auth-gaurd.service';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { OrderViewComponent } from './components/order-view/order-view.component';
 
 
 
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
   { path: 'client/:id', component: ClientsDetailsComponent },
   { path: 'edit-client/:id', component: EditClientsComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'order-view/:id', component: OrderViewComponent },
 
 
   { path: 'login', component: LoginComponent },

@@ -14,4 +14,21 @@ export class OrderService {
     this.shoppingCartSrvc.clearCart();
     return result;
   }
+  getAllOrders() {
+    return this.db.list('/order');
+  }
+
+  getOrderByUser(userId: string) {
+    return this.db.list('/order', {
+      query: {
+        orderByChild: 'user/userId',
+        equalTo: userId
+      }
+    });
+  }
+
+  getOrderById(orderId: string) {
+    return this.db.object('/order/' + orderId);
+  }
+
 }
