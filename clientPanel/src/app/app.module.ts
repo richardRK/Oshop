@@ -51,6 +51,10 @@ import { BrandComponent } from './components/brand/brand.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ServicesComponent } from './components/services/services.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ConnectionService } from './services/connection.service';
+import { LayoutComponent } from './ui/layout/layout.component';
+import { HeaderComponent } from './ui/header/header.component';
+import { FooterComponent } from './ui/footer/footer.component';
 
 
 
@@ -80,7 +84,10 @@ import {HttpClientModule} from '@angular/common/http';
     AboutUsComponent,
     BrandComponent,
     ContactComponent,
-    ServicesComponent
+    ServicesComponent,
+    LayoutComponent,
+    HeaderComponent,
+    FooterComponent
 
   ],
   imports: [
@@ -105,7 +112,8 @@ import {HttpClientModule} from '@angular/common/http';
     CategoryService,
     ProductService,
     ShoppingCartService,
-    OrderService
+    OrderService,
+    ConnectionService,
   ],
   bootstrap: [AppComponent]
 })

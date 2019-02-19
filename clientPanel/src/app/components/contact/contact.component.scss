@@ -1,0 +1,30 @@
+.modal-header {
+    margin: 0 auto;
+    width: 100%;
+    background-color: #33b5e5;
+}
+
+.btn {
+    background-color: #33b5e5;
+}
+
+.container {
+    padding-top: 100px;
+}
+
+.card {
+    padding: 15px 30px;
+    width: 100%;
+    margin: auto;
+}
+
+#email,
+#phone {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: .5em;
+}
+
+span.x {
+    color: #fff;
+}
