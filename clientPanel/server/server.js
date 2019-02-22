@@ -4,12 +4,15 @@ const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
 
+
+
 const transporter = nodemailer.createTransport({
 
   host: 'smtp.gmail.com',
   provider: 'gmail',
   port: 587,
-  secure: true,
+  ssl:     true,
+  //secure: true,
   auth: {
     user: 'varma36a@gmail.com', // Enter here email address from which you want to send emails
     pass: 'sai##1886' // Enter here password for email account from which you want to send emails
@@ -37,7 +40,7 @@ app.post('/send', function (req, res) {
   let copyToSender = req.body.contactFormCopy;
 
   let mailOptions = {
-    to: [''], // Enter here the email address on which you want to send emails from your customers
+    to: ['rohit36a@gmail.com'], // Enter here the email address on which you want to send emails from your customers
     from: senderName,
     subject: messageSubject,
     text: messageText,

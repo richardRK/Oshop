@@ -7,14 +7,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ConnectionService {
 
-  url: string = 'http://localhost:4200/send';
+  url: string = 'http://localhost:3000/send';
   constructor(private http: HttpClient) { }
 
   sendMessage(messageContent: any) {
 
     console.log('in send message');
     return this.http.post(this.url,
-      JSON.stringify(messageContent),
+      JSON.parse(JSON.stringify(messageContent)),
       { headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' });
   }
 }

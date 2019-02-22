@@ -55,6 +55,7 @@ import { ConnectionService } from './services/connection.service';
 import { LayoutComponent } from './ui/layout/layout.component';
 import { HeaderComponent } from './ui/header/header.component';
 import { FooterComponent } from './ui/footer/footer.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -103,6 +104,7 @@ import { FooterComponent } from './ui/footer/footer.component';
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     AuthService,
